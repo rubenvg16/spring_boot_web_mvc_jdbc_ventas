@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+<div class="container mx-auto px-4">
+    <form th:action="@{/clientes/editar/__${cliente.id}__}" th:object="${cliente}" method="post">
+        <div class="flex flex-row py-4 items-center border-b-2 p-2">
+            <div class="basis-1/2 text-4xl">
+                <h1>Editar Cliente</h1>
+            </div>
+            <div class="basis-1/2 flex justify-center">
+                <button class="btn btn-blue">Guardar</button>
+            </div>
+        </div>
+        <div class="flex flex-row my-2">
+            <div class="basis-1/2">Código</div>
+            <div class="basis-1/2">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{id}" readonly="readonly"/>
+            </div>
+        </div>
+        <div class="flex flex-row my-2">
+            <div class="basis-1/2">Nombre</div>
+            <div class="basis-1/2">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{nombre}" />
+            </div>
+        </div>
+        <div class="flex flex-row my-2">
+            <div class="basis-1/2">Primer Apellido</div>
+            <div class="basis-1/2">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{apellido1}" />
+            </div>
+        </div>
+        <div class="flex flex-row my-2">
+            <div class="basis-1/2">Segundo Apellido</div>
+            <div class="basis-1/2">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{apellido2}" />
+            </div>
+        </div>
+        <div class="flex flex-row my-2">
+            <div class="basis-1/2">Ciudad</div>
+            <div class="basis-1/2">
+                <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{ciudad}" />
+            </div>
+        </div>
+        <div class="flex flex-row my-2">
+            <div class="basis-1/2">Categoría</div>
+            <div class="basis-1/2">
+                <input type="number" class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{categoria}" />
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

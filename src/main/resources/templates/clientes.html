@@ -1,72 +1,50 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Clientes</title>
-<style>
-.clearfix::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-</style>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<meta charset="UTF-8">
+	<title>Lista de Clientes</title>
+	<link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
-<body>
-
-	<div id="contenedora" style="float:none; margin: 0 auto;width: 95%;" >
-		<div class="clearfix">
-			<div style="float: left; width: 50%">
-				<h1>Clientes</h1>
-			</div>
-			<div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
-				
-				<div style="position: absolute; left: 39%; top : 39%;">
-					
-						<form action="/clientes/crear">
-							<input type="submit" value="Crear">
-						</form>
-					</div>
-				
-			</div>
+<div class="container mx-auto px-4">
+	<div class="flex flex-row py-4 items-center border-b-2 p-2">
+		<div class="basis-1/2 text-4xl">
+			<h1>Clientes</h1>
 		</div>
-		<div class="clearfix">
-			<hr/>
-		</div>
-		<div class="clearfix">
-			<div style="float: left;width: 14%">Id</div>
-			<div style="float: left;width: 14%">Nombre</div>
-			<div style="float: left;width: 14%">Apellido1</div>
-			<div style="float: left;width: 14%">Apellido2</div>
-			<div style="float: left;width: 14%">Ciudad</div>
-			<div style="float: left;width: 14%">Categoría</div>
-			<div style="float: none;width: auto;overflow: hidden;">Acción</div>
-		</div>
-		<div class="clearfix">
-			<hr/>
-		</div>
-
-		<div  th:each="cliente : ${listaClientes}" style="margin-top: 6px;" class="clearfix">
-			<div style="float: left;width: 14%" th:text="${cliente.id}">0</div>
-			<div style="float: left;width: 14%" th:text="${cliente.nombre}">nombre</div>
-			<div style="float: left;width: 14%" th:text="${cliente.apellido1}">apellido1</div>
-			<div style="float: left;width: 14%" th:text="${cliente.apellido2 ?: '&nbsp;'}">apellido2</div>
-			<div style="float: left;width: 14%" th:text="${cliente.ciudad}">ciudad</div>
-			<div style="float: left;width: 14%" th:text="${cliente.categoria}">categoría</div>
-			<div style="float: none;width: auto;overflow: hidden;">
-				<form th:action="@{/clientes/__${cliente.id}__}" style="display: inline;">
-    				<input type="submit" value="Ver Detalle" />
-				</form>
-				<form th:action="@{/clientes/editar/}+${cliente.id} " style="display: inline;">
-    				<input type="submit" value="Editar" />
-				</form>
-				<form th:action="@{/clientes/borrar/__${cliente.}_id_}" method="post" style="display: inline;">					
-    				<input type="submit" value="Eliminar" />
-				</form>
-			</div>
+		<div class="basis-1/2 flex justify-end">
+			<a href="/clientes/crear" class="btn btn-green">Crear Cliente</a>
 		</div>
 	</div>
-</body>
+	<table class="table-auto w-full border-collapse border border-gray-300">
+		<thead>
+		<tr class="bg-gray-200">
+			<th class="border border-gray-300 px-4 py-2">Código</th>
+			<th class="border border-gray-300 px-4 py-2">Nombre</th>
+			<th class="border border-gray-300 px-4 py-2">Primer Apellido</th>
+			<th class="border border-gray-300 px-4 py-2">Segundo Apellido</th>
+			<th class="border border-gray-300 px-4 py-2">Ciudad</th>
+			<th class="border border-gray-300 px-4 py-2">Categoría</th>
+			<th class="border border-gray-300 px-4 py-2">Acciones</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="cliente : ${clientes}" class="odd:bg-white even:bg-gray-100">
+			<td class="border border-gray-300 px-4 py-2" th:text="${cliente.id}">CL001</td>
+			<td class="border border-gray-300 px-4 py-2" th:text="${cliente.nombre}">Nombre</td>
+			<td class="border border-gray-300 px-4 py-2" th:text="${cliente.apellido1}">Apellido1</td>
+			<td class="border border-gray-300 px-4 py-2" th:text="${cliente.apellido2}">Apellido2</td>
+			<td class="border border-gray-300 px-4 py-2" th:text="${cliente.ciudad}">Ciudad</td>
+			<td class="border border-gray-300 px-4 py-2" th:text="${cliente.categoria}">0</td>
+			<td class="border border-gray-300 px-4 py-2">
+				<a href="/clientes/detalle/" th:href="@{/clientes/detalle/__${cliente.id}__}" class="btn btn-blue">Detalles</a>
+				<a href="/clientes/editar/" th:href="@{/clientes/editar/__${cliente.id}__}" class="btn btn-yellow">Editar</a>
+				<form th:action="@{/clientes/eliminar/__${cliente.id}__}" method="post" class="inline">
+					<button class="btn btn-red" type="submit">Eliminar</button>
+				</form>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <title>Detalle Comercial</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+<div class="container mx-auto px-4">
+    <div class="flex flex-row py-4 items-center border-b-2 p-2">
+        <div class="basis-1/2 text-4xl">
+            <h1>Detalle Comercial</h1>
+        </div>
+        <div class="basis-1/2 flex justify-end">
+            <a href="/comerciales" class="btn btn-gray">Volver</a>
+        </div>
+    </div>
+    <div class="flex flex-row my-2">
+        <div class="basis-1/2">Código</div>
+        <div class="basis-1/2">
+            <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:value="${comercial.id}" readonly="readonly"/>
+        </div>
+    </div>
+    <div class="flex flex-row my-2">
+        <div class="basis-1/2">Nombre</div>
+        <div class="basis-1/2">
+            <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:value="${comercial.nombre}" readonly="readonly"/>
+        </div>
+    </div>
+    <div class="flex flex-row my-2">
+        <div class="basis-1/2">Primer Apellido</div>
+        <div class="basis-1/2">
+            <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:value="${comercial.apellido1}" readonly="readonly"/>
+        </div>
+    </div>
+    <div class="flex flex-row my-2">
+        <div class="basis-1/2">Segundo Apellido</div>
+        <div class="basis-1/2">
+            <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:value="${comercial.apellido2}" readonly="readonly"/>
+        </div>
+    </div>
+    <div class="flex flex-row my-2">
+        <div class="basis-1/2">Comisión</div>
+        <div class="basis-1/2">
+            <input type="number" step="0.01" class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:value="${comercial.comision}" readonly="readonly"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
