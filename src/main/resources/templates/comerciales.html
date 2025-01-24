@@ -4,42 +4,42 @@
 <head>
   <script src="https://cdn.tailwindcss.com"></script>
   <meta charset="UTF-8">
-  <title>Lista de Comerciales</title>
+  <title th:text="#{msg.crear_cliente}"></title>
   <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
 <div class="container mx-auto px-4">
   <div class="flex flex-row py-4 items-center border-b-2 p-2">
     <div class="basis-1/2 text-4xl">
-      <h1>Comerciales</h1>
+      <h1 th:text="#{msg.comerciales}"></h1>
     </div>
     <div class="basis-1/2 flex justify-end">
-      <a href="/comerciales/crear" class="btn btn-green">Crear Comercial</a>
+      <a href="/comerciales/crear" class="btn btn-green" th:text="#{msg.crear_comercial}"></a>
     </div>
   </div>
   <table class="table-auto w-full border-collapse border border-gray-300">
     <thead>
     <tr class="bg-gray-200">
-      <th class="border border-gray-300 px-4 py-2">Código</th>
-      <th class="border border-gray-300 px-4 py-2">Nombre</th>
-      <th class="border border-gray-300 px-4 py-2">Primer Apellido</th>
-      <th class="border border-gray-300 px-4 py-2">Segundo Apellido</th>
-      <th class="border border-gray-300 px-4 py-2">Comisión</th>
-      <th class="border border-gray-300 px-4 py-2">Acciones</th>
+      <th class="border border-gray-300 px-4 py-2" th:text="#{msg.codigo}"></th>
+      <th class="border border-gray-300 px-4 py-2" th:text="#{msg.nombre}"></th>
+      <th class="border border-gray-300 px-4 py-2" th:text="#{msg.primer_apellido}"></th>
+      <th class="border border-gray-300 px-4 py-2" th:text="#{msg.segundo_apellido}"></th>
+      <th class="border border-gray-300 px-4 py-2" th:text="#{msg.comision}"></th>
+      <th class="border border-gray-300 px-4 py-2" th:text="#{msg.acciones}"></th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="comercial : ${comerciales}" class="odd:bg-white even:bg-gray-100">
+    <tr th:each="comercial : ${listaComerciales}" class="odd:bg-white even:bg-gray-100">
       <td class="border border-gray-300 px-4 py-2" th:text="${comercial.id}">C001</td>
       <td class="border border-gray-300 px-4 py-2" th:text="${comercial.nombre}">Nombre</td>
       <td class="border border-gray-300 px-4 py-2" th:text="${comercial.apellido1}">Apellido1</td>
       <td class="border border-gray-300 px-4 py-2" th:text="${comercial.apellido2}">Apellido2</td>
       <td class="border border-gray-300 px-4 py-2" th:text="${comercial.comision}">0.00</td>
       <td class="border border-gray-300 px-4 py-2">
-        <a href="/comerciales/detalle/" th:href="@{/comerciales/detalle/__${comercial.id}__}" class="btn btn-blue">Detalles</a>
-        <a href="/comerciales/editar/" th:href="@{/comerciales/editar/__${comercial.id}__}" class="btn btn-yellow">Editar</a>
+        <a href="/comerciales/detalle/" th:href="@{/comerciales/detalle/__${comercial.id}__}" class="btn btn-blue" th:text="#{msg.detalles}"></a>
+        <a href="/comerciales/editar/" th:href="@{/comerciales/editar/__${comercial.id}__}" class="btn btn-yellow" th:text="#{msg.editar}"></a>
         <form th:action="@{/comerciales/eliminar/__${comercial.id}__}" method="post" class="inline">
-          <button class="btn btn-red" type="submit">Eliminar</button>
+          <button class="btn btn-red" type="submit" th:text="#{msg.eliminar}"></button>
         </form>
       </td>
     </tr>

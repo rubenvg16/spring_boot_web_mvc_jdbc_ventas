@@ -3,14 +3,13 @@ package org.iesvdm.dao;
 import java.util.List;
 import java.util.Optional;
 
-import org.iesvdm.modelo.Cliente;
+import lombok.extern.slf4j.Slf4j;
 import org.iesvdm.modelo.Comercial;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 
 //Anotación lombok para logging (traza) de la aplicación
 @Slf4j
@@ -41,7 +40,7 @@ public class ComercialDAOImpl implements ComercialDAO {
                 							  rs.getFloat("comisión"))
                 						 	
         );
-		
+
 		log.info("Devueltos {} registros.", listComercial.size());
 		
         return listComercial;

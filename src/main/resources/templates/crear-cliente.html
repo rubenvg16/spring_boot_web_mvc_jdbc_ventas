@@ -7,41 +7,41 @@
 </head>
 <body>
 <div class="container mx-auto px-4">
-  <form th:action="@{/clientes/crear}" th:object="${cliente}" method="post">
+  <form th:action="@{/clientes/crear/__${cliente.id}__}" th:object="${cliente}" method="post">
     <div class="flex flex-row py-4 items-center border-b-2 p-2">
       <div class="basis-1/2 text-4xl">
-        <h1>Crear Cliente</h1>
+        <h1 th:text="#{msg.crear_cliente}"></h1>
       </div>
       <div class="basis-1/2 flex justify-center">
-        <button class="btn btn-blue">Guardar</button>
+        <button class="btn btn-blue" th:text="#{msg.guardar}"></button>
       </div>
     </div>
     <div class="flex flex-row my-2">
-      <div class="basis-1/2">Nombre</div>
+      <div class="basis-1/2" th:text="#{msg.nombre}"></div>
       <div class="basis-1/2">
         <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{nombre}" />
       </div>
     </div>
     <div class="flex flex-row my-2">
-      <div class="basis-1/2">Primer Apellido</div>
+      <div class="basis-1/2" th:text="#{msg.primer_apellido}"></div>
       <div class="basis-1/2">
         <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{apellido1}" />
       </div>
     </div>
     <div class="flex flex-row my-2">
-      <div class="basis-1/2">Segundo Apellido</div>
+      <div class="basis-1/2" th:text="#{msg.segundo_apellido}"></div>
       <div class="basis-1/2">
         <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{apellido2}" />
       </div>
     </div>
     <div class="flex flex-row my-2">
-      <div class="basis-1/2">Ciudad</div>
+      <div class="basis-1/2" th:text="#{msg.ciudad}"></div>
       <div class="basis-1/2">
         <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{ciudad}" />
       </div>
     </div>
     <div class="flex flex-row my-2">
-      <div class="basis-1/2">Categoría</div>
+      <div class="basis-1/2" th:text="#{msg.categoria}"></div>
       <div class="basis-1/2">
         <input type="number" class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight" th:field="*{categoria}" />
       </div>

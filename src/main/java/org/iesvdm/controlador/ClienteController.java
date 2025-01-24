@@ -36,17 +36,16 @@ public class ClienteController {
 
 	}
 
-	@GetMapping("/clientes/{id}")
+	@GetMapping("/clientes/detalle/{id}")
 	public String detalle(Model model, @PathVariable Integer id ) {
 
 		Cliente cliente = clienteService.one(id);
 		model.addAttribute("cliente", cliente);
-
 		return "detalle-cliente";
 
 	}
 
-	@GetMapping("/cliente/crear")
+	@GetMapping("/clientes/crear")
 	public String crear(Model model) {
 
 		Cliente cliente = new Cliente();
@@ -56,7 +55,7 @@ public class ClienteController {
 
 	}
 
-	@PostMapping("/clientes/crear")
+	@PostMapping("/clientes/crear/")
 	public RedirectView submitCrear(@ModelAttribute("cliente") Cliente cliente) {
 
 		clienteService.newCliente(cliente);
@@ -84,7 +83,7 @@ public class ClienteController {
 		return new RedirectView("/clientes");
 	}
 
-	@PostMapping("/clientes/borrar/{id}")
+	@PostMapping("/clientes/eliminar/{id}")
 	public RedirectView submitBorrar(@PathVariable Integer id) {
 
 		clienteService.deleteCliente(id);

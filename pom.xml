@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0</version>
+		<version>3.4.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.iesvdm</groupId>
@@ -14,7 +14,7 @@
 	<description>Proyecto Ventas</description>
 	<properties>
 		<!-- mínima versión de java con spring boot 3 -->
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 <!--		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
 	</properties>
 	<dependencies>
@@ -50,27 +50,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
-			<!-- dependencia para utilizar acceso a base de datos
-			con estilo de sql directo sobre jdbc (JdbcTemplate) -->
-			<!-- Excluimos el Connection Pool de jdbc de tomcat,
-			para usar el Hikari Connection Pool más veloz
-			https://github.com/brettwooldridge/HikariCP-->
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.tomcat</groupId>
-					<artifactId>tomcat-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- añadimos el connection pool Hikari compatible con java11+,
-			automáticamente spring boot lo cogerá en vez
-			del connection pool de tomcat que hemos excluido -->
-		<dependency>
-			<groupId>com.zaxxer</groupId>
-			<artifactId>HikariCP</artifactId>
-			<version>5.0.1</version>
-			<!-- hay que aceptar el warning para compatibilidad con java11+
-			https://github.com/brettwooldridge/HikariCP-->
 		</dependency>
 
 		<dependency>
