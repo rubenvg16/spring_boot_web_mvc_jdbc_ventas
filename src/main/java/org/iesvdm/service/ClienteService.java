@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static com.fasterxml.jackson.databind.type.LogicalType.Map;
+
 @Service
 public class ClienteService {
 
@@ -18,7 +20,9 @@ public class ClienteService {
 
 	public List<Cliente> listAll() {
 
-		return clienteDAO.getAll();
+		List<Cliente> listAll = clienteDAO.getAll();
+
+		return listAll;
 
 	}
 

@@ -1,19 +1,18 @@
 package org.iesvdm.dao;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.iesvdm.modelo.Cliente;
 
 public interface ClienteDAO {
 
-	public void create(Cliente cliente);
-	
-	public List<Cliente> getAll();
-	public Optional<Cliente>  find(int id);
-	
-	public void update(Cliente cliente);
-	
-	public void delete(long id);
+	void create(Cliente cliente);
+	List<Cliente> getAll();
+	Map<Integer, Integer> getNumeroPedidosByIdCliente();
+	Optional<Cliente>  find(int id);
+	void update(Cliente cliente);
+	void delete(long id);
 	
 }

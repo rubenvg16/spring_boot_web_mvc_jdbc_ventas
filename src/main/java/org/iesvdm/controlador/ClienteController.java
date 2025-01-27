@@ -2,6 +2,8 @@ package org.iesvdm.controlador;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import org.iesvdm.mapper.ClienteMapper;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.modelo.Comercial;
 import org.iesvdm.service.ClienteService;
@@ -23,14 +25,20 @@ import org.springframework.web.servlet.view.RedirectView;
 //@RequestMapping("/fabricantes")
 public class ClienteController {
 
-	@Autowired
 	private ClienteService clienteService;
+	private ClienteMapper clienteMapper;
+
 
 	@GetMapping("/clientes")
 	public String listar(Model model) {
 
 		List<Cliente> listAllCli =  clienteService.listAll();
+
+
+
 		model.addAttribute("listaClientes", listAllCli);
+
+
 
 		return "clientes";
 
