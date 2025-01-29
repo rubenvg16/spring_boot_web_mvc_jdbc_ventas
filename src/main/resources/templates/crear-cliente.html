@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container mx-auto px-4">
-  <form th:action="@{/clientes/crear/__${cliente.id}__}" th:object="${cliente}" method="post">
+  <form th:action="@{/clientes/crear}" th:object="${cliente}" method="post">
     <div class="flex flex-row py-4 items-center border-b-2 p-2">
       <div class="basis-1/2 text-4xl">
         <h1 th:text="#{msg.crear_cliente}"></h1>
@@ -15,7 +15,7 @@
       <div class="basis-1/2 flex justify-center">
         <button class="btn btn-blue" th:text="#{msg.guardar}"></button>
       </div>
-    </div>x
+    </div>
     <div class="flex flex-row my-2">
       <div class="basis-1/2" th:text="#{msg.nombre}"></div>
       <div class="basis-1/2">
