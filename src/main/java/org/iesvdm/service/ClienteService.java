@@ -35,7 +35,6 @@ public class ClienteService {
 	}
 
 	public void newCliente(Cliente cliente) {
-
 		clienteDAO.create(cliente);
 
 	}

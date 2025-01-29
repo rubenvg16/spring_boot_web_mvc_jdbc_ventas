@@ -29,7 +29,6 @@ public class ComercialService {
     }
 
     public void newComercial(Comercial comercial) {
-
         comercialDAO.create(comercial);
 
     }

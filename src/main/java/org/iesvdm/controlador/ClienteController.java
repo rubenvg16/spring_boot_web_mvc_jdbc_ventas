@@ -21,11 +21,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
+
 //Para utilizar una base de url, pero se visualiza mejor con toda la ruta en los métodos
 //@RequestMapping("/fabricantes")
 public class ClienteController {
 
+	@Autowired
 	private ClienteService clienteService;
+	@Autowired
 	private ClienteMapper clienteMapper;
 
 
@@ -33,12 +36,7 @@ public class ClienteController {
 	public String listar(Model model) {
 
 		List<Cliente> listAllCli =  clienteService.listAll();
-
-
-
 		model.addAttribute("listaClientes", listAllCli);
-
-
 
 		return "clientes";
 
@@ -63,7 +61,7 @@ public class ClienteController {
 
 	}
 
-	@PostMapping("/clientes/crear/")
+	@PostMapping("/clientes/crear")
 	public RedirectView submitCrear(@ModelAttribute("cliente") Cliente cliente) {
 
 		clienteService.newCliente(cliente);

@@ -27,6 +27,7 @@ public class ComercialController {
     @GetMapping("/comerciales")
     public String listar(Model model) {
 
+
         List<Comercial> listAllCom =  comercialService.listAll();
         model.addAttribute("listaComerciales", listAllCom);
 
@@ -34,14 +35,13 @@ public class ComercialController {
 
     }
 
-    @GetMapping("/comerciales/{id}")
+    @GetMapping("/comerciales/detalle/{id}")
     public String detalle(Model model, @PathVariable Integer id ) {
 
         Comercial comercial = comercialService.one(id);
         model.addAttribute("comercial", comercial);
 
         return "detalle-comercial";
-
     }
 
     @GetMapping("/comerciales/crear")
@@ -70,7 +70,6 @@ public class ComercialController {
         model.addAttribute("comercial", comercial);
 
         return "editar-comercial";
-
     }
 
 
@@ -82,7 +81,7 @@ public class ComercialController {
         return new RedirectView("/comerciales");
     }
 
-    @PostMapping("/comerciales/borrar/{id}")
+    @PostMapping("/comerciales/eliminar/{id}")
     public RedirectView submitBorrar(@PathVariable Integer id) {
 
         comercialService.deleteComercial(id);
