@@ -64,7 +64,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
 		log.info("Insertados {} registros.", rows);
 	}
-
+//asd
 	/**
 	 * Devuelve lista con todos loa Clientes.
 	 */
