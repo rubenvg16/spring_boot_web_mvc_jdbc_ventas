@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<title th:text="#{msg.clientes}"></title>
 </head>
-<body>
+<body class="bg-gray-400">
 <div class="container mx-auto px-4">
 	<div class="flex flex-row py-4 items-center border-b-2 p-2">
 		<div class="basis-1/2 text-4xl">
 			<h1 th:text="#{msg.clientes}"></h1>
 		</div>
 		<div class="basis-1/2 flex justify-end">
-			<a href="/clientes/crear" class="btn btn-green" th:text="#{msg.crear_cliente}"></a>
+			<a href="/clientes/crear" class="btn" th:text="#{msg.crear_cliente}"></a>
 		</div>
 	</div>
 	<table class="table-auto w-full border-collapse border border-gray-300">
